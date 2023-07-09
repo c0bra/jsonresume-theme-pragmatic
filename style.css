@@ -14,6 +14,17 @@ body {
   --heading-color: #333;
 }
 
+@media print {
+  body {
+    margin: 0;
+  }
+
+  .container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   body {
     --fg-color: #D5D6D7;
@@ -47,6 +58,7 @@ em {
 
 p {
   line-height: 1.4;
+  margin: 8px 0;
 }
 
 a {
@@ -57,6 +69,11 @@ a {
 ul {
   margin-bottom: 0;
 }
+
+ul li::marker {
+  content: ' ●  ';
+}
+
 section {
   margin-bottom: 2em;
 }
@@ -112,7 +129,7 @@ header .name-label {
   margin-bottom: 10px;
 }
 
-h2.heading {
+section h2 {
   font-size: 14pt;
   color: var(--heading-color);
   padding-bottom: 6px;
@@ -144,6 +161,7 @@ h3 {
 
 .headline {
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .headline > * {
@@ -184,12 +202,13 @@ h3 {
 .institution,
 .study_date,
 .qualification {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   width: 30%;
 }
 
 .work_position {
   font-size: 12pt;
+  line-height: 12pt;
 }
 
 .courses {
@@ -200,20 +219,24 @@ h3 {
   margin-top: 10px;
 }
 
+.highlights {
+  margin: 0;
+}
+
 #work,
 #volunteer {
   padding-bottom: 5px;
-  border-bottom: 1px var(--seperator-color) solid;
+  /* border-bottom: 1px var(--seperator-color) solid; */
 }
 
 #work .item,
 #volunteer .item {
-  margin: 12px 0;
+  margin: 12px 0 32px;
 }
 
 #skills {
   margin-bottom: 10px;
-  border-bottom: 1px var(--seperator-color) solid;
+  /* border-bottom: 1px var(--seperator-color) solid; */
   padding-bottom: 5px;
 }
 
@@ -222,8 +245,28 @@ h3 {
   margin: 0 0 25px 0;
 }
 
-#interests .item {
-  margin-bottom: 25px;
+#skills td, #interests td {
+  padding: 2px 0;
+  vertical-align: top;
+}
+
+#skills td:first-of-type, #interests td:first-of-type {
+  padding-right: 12px;
+  white-space: nowrap;
+}
+
+#skills td:first-of-type:before, #interests td:first-of-type:before {
+  content: '● ';
+  padding-left: 24px;
+  padding-right: 3px;
+}
+
+#skills .keywords > *:after, #interests .keywords > *:after {
+  content: ',';
+}
+
+#skills .keywords > *:last-of-type:after, #interests .keywords > *:last-of-type:after {
+  content: '';
 }
 
 #skills {

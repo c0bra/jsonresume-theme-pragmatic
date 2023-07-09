@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?ffamily=Open+Sans:wght@300;400;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap"
     rel="stylesheet">
 
   {{#resume.basics}}
@@ -47,7 +47,7 @@
         {{#if location}}
         <div>
             {{location.address}}
-            {{#if location._countryCode}}, {{location._countryCode}}{{/if}}
+            {{#if location.countryCode}}, {{location.countryCode}}{{/if}}
           </div>
         {{/if}}
         {{#if phone}}
@@ -299,28 +299,25 @@
 
   {{#if resume.skills.length}}
   <section id="skills">
-    <h2>Skills</h2>
+    <h2>Technologies and Languages</h2>
+    <table>
     {{#each resume.skills}}
-    <div class="item">
-      {{#if name}}
-      <div class="name">
-        {{name}}
-      </div>
-      {{/if}}
-      {{#if level}}
-      <div class="level">
-        <em>{{level}}</em>
-      </div>
-      {{/if}}
-      {{#if keywords.length}}
-      <ul class="keywords">
-        {{#each keywords}}
-        <li>{{.}}</li>
-        {{/each}}
-      </ul>
-      {{/if}}
-    </div>
+      <tr>
+        <td class="name">
+        {{#if name}}
+          {{name}}{{#if keywords.length}}:{{/if}}
+        {{/if}}
+        </td>
+        <td class="keywords">
+        {{#if keywords.length}}
+          {{#each keywords}}
+            <span>{{.}}</span>
+          {{/each}}
+        {{/if}}
+        </td>
+      </tr>
     {{/each}}
+    </table>
   </section>
   {{/if}}
 
@@ -347,22 +344,24 @@
   {{#if resume.interests.length}}
   <section id="interests">
     <h2>Interests</h2>
-    {{#each resume.interests}}
-    <div class="item">
-      {{#if name}}
-      <div class="name">
-        {{name}}
-      </div>
-      {{/if}}
-      {{#if keywords.length}}
-      <ul class="keywords">
-        {{#each keywords}}
-        <li>{{.}}</li>
-        {{/each}}
-      </ul>
-      {{/if}}
-    </div>
-    {{/each}}
+    <table>
+      {{#each resume.interests}}
+      <tr>
+        <td class="name">
+          {{#if name}}
+          {{name}}{{#if keywords.length}}:{{/if}}
+          {{/if}}
+        </td>
+        <td class="keywords">
+          {{#if keywords.length}}
+          {{#each keywords}}
+          <span>{{.}}</span>
+          {{/each}}
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </table>
   </section>
   {{/if}}
 
