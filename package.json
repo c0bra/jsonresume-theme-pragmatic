@@ -1,0 +1,30 @@
+{
+  "name": "jsonresume-theme-pragmatic",
+  "version": "0.2.5",
+  "description": "Pragmatic Engineer Theme for JSON Resume",
+  "author": "Brian Hann",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "resume",
+    "cv",
+    "jsonresume",
+    "jsonresume-theme",
+    "jsonresume-theme-pragmatic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c0bra/jsonresume-theme-pragmatic"
+  },
+  "scripts": {
+    "build:pdf": "resume export --theme . resume.pdf",
+    "build:html": "resume export --theme . resume.html"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "marked": "^4.0.17"
+  },
+  "devDependencies": {
+    "resume-cli": "^3.0.8"
+  }
+}
